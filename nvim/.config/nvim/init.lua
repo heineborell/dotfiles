@@ -399,7 +399,8 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        -- the below follow = true is added for symlink search
+        pickers = { find_files = { follow = true } },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
