@@ -1,0 +1,89 @@
+include current-theme.conf
+
+enable_audio_bell no
+
+font_size 16.0
+
+#optional, flashes screen.
+visual_bell_duration 0.5
+
+# trails
+cursor_trail 3
+
+# open new tab with the present directory
+map kitty_mod+enter launch --cwd=current --type=window
+map cmd+enter       launch --cwd=current --type=window
+map kitty_mod+t     launch --cwd=current --type=tab
+map cmd+t           launch --cwd=current --type=tab
+
+
+
+
+
+# BEGIN_KITTY_FONTS
+font_family      JetBrains Mono
+bold_font        JetBrains Mono Bold
+italic_font      JetBrains Mono Italic
+bold_italic_font JetBrains Mono Bold Italic
+# END_KITTY_FONTS
+
+# BEGIN_KITTY_THEME
+# Kanagawa_dragon
+include current-theme.conf
+# END_KITTY_THEME
+#
+# tab bar 
+tab_bar_style powerline
+
+# Nord theme - ported from https://github.com/arcticicestudio/nord-hyper
+# foreground            #D8DEE9
+# background            #2E3440 
+# selection_foreground  #000000
+# selection_background  #FFFACD
+# url_color             #0087BD
+# cursor                #81A1C1
+
+# black
+# color0   #3B4252
+# color8   #4C566A
+
+# red
+# color1   #BF616A
+# color9   #BF616A
+
+# green
+# color2   #A3BE8C
+# color10  #A3BE8C
+
+# yellow
+# color3   #EBCB8B
+# color11  #EBCB8B
+
+# blue
+# color4  #81A1C1
+# color12 #81A1C1
+
+# magenta
+# color5   #B48EAD
+# color13  #B48EAD
+
+# cyan
+# color6   #88C0D0
+# color14  #8FBCBB
+
+# white
+# color7   #E5E9F0
+# color15  #B48EAD
+
+#window decorations
+window_border_width 1
+window_padding_width 0
+# active_border_color #00ff00
+# inactive_border_color #cccccc
+
+# Tab-bar colors
+# active_tab_foreground #000
+# active_tab_background #eee
+# inactive_tab_foreground #444
+# inactive_tab_background #999
+
