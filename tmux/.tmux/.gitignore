@@ -8,3 +8,5 @@ plugins/*
 # from version control. !plugins/tpm The ! negates the previous rule, meaning
 # do not ignore the tpm/ directory inside plugins/. This ensures that tpm/ will
 # be tracked by Git while the rest of the contents of plugins/ are ignored.
+
+# this is really interesting and setup by help of chadgpt we first commit only plugin than add it to gitignore 
