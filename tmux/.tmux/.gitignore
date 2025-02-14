@@ -1,0 +1,10 @@
+plugins/*
+!plugins/tpm
+
+
+
+# plugins/* This rule tells Git to ignore everything inside the plugins/
+# directory. So all files and subdirectories inside plugins/ will be excluded
+# from version control. !plugins/tpm The ! negates the previous rule, meaning
+# do not ignore the tpm/ directory inside plugins/. This ensures that tpm/ will
+# be tracked by Git while the rest of the contents of plugins/ are ignored.
