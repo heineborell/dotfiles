@@ -3,12 +3,13 @@ include current-theme.conf
 enable_audio_bell no
 
 font_size 16.0
+text_composition_strategy legacy
 
 #optional, flashes screen.
 visual_bell_duration 0.5
 
 # trails
-cursor_trail 3
+cursor_trail 1
 
 # open new tab with the present directory
 map kitty_mod+enter launch --cwd=current --type=window
@@ -21,15 +22,15 @@ map cmd+t           launch --cwd=current --type=tab
 
 
 # BEGIN_KITTY_FONTS
-font_family      JetBrains Mono
-bold_font        JetBrains Mono Bold
-italic_font      JetBrains Mono Italic
-bold_italic_font JetBrains Mono Bold Italic
+font_family      family="JetBrainsMonoNL Nerd Font Mono"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
 # END_KITTY_FONTS
 
 # BEGIN_KITTY_THEME
-# Kanagawa_dragon
-include current-theme.conf
+# Nord
+#include current-theme.conf
 # END_KITTY_THEME
 #
 # tab bar 
@@ -37,7 +38,7 @@ tab_bar_style powerline
 
 # Nord theme - ported from https://github.com/arcticicestudio/nord-hyper
 # foreground            #D8DEE9
-# background            #2E3440 
+background            #1B1212
 # selection_foreground  #000000
 # selection_background  #FFFACD
 # url_color             #0087BD
