@@ -24,7 +24,32 @@ return {
         path = '$HOME/library/Mobile Documents/iCloud~md~obsidian/Documents/stuffvault',
       },
     },
+    notes_subdir = 'inbox',
+    new_notes_location = 'notes_subdir',
 
+    disable_frontmatter = true,
+    templates = {
+      subdir = 'templates',
+      date_format = '%y-%m-%d',
+      time_format = '%h:%m:%s',
+    },
     -- see below for full list of options 👇
+    -- key mappings, below are the defaults
+    mappings = {
+      -- overrides the 'gf' mapping to work on markdown/wiki links within your vault
+      ['gf'] = {
+        action = function()
+          return require('obsidian').util.gf_passthrough()
+        end,
+        opts = { noremap = false, expr = true, buffer = true },
+      },
+      -- toggle check-boxes
+      ['<leader>ti'] = {
+        action = function()
+          return require('obsidian').util.toggle_checkbox()
+        end,
+        opts = { buffer = true },
+      },
+    },
   },
 }
