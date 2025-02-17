@@ -8,8 +8,19 @@ return {
     -- refer to the configuration section below
     lazygit = { enabled = true },
     terminal = { enabled = true },
+    image = {
+      enabled = true,
+      doc = {
+        inline = false,
+        -- render the image in a floating window
+        -- only used if `opts.inline` is disabled
+        float = true,
+        max_width = 40,
+        max_height = 20,
+      },
+    },
     --bigfile = { enabled = true },
-    --dashboard = { enabled = true },
+    dashboard = { enabled = true },
     --explorer = { enabled = true },
     --indent = { enabled = true },
     --input = { enabled = true },

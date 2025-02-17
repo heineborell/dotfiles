@@ -1036,7 +1036,7 @@ require('lazy').setup({
   require 'kickstart.plugins.snacks',
   require 'kickstart.plugins.vimtex',
   require 'kickstart.plugins.marp',
-  require 'kickstart.plugins.image',
+  -- require 'kickstart.plugins.image',
   require 'kickstart.plugins.jupynium',
   require 'kickstart.plugins.flash',
   require 'kickstart.plugins.tmuxmove',
