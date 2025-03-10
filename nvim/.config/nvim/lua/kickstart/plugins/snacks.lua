@@ -15,8 +15,8 @@ return {
         -- render the image in a floating window
         -- only used if `opts.inline` is disabled
         float = true,
-        max_width = 40,
-        max_height = 20,
+        max_width = 20,
+        max_height = 10,
       },
     },
     --bigfile = { enabled = true },

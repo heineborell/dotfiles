@@ -688,7 +688,7 @@ require('lazy').setup({
         pyright = {},
         ruff = {},
         -- texlab = {},
-        marksman = {},
+        -- marksman = {},
         --sqls = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -785,7 +785,7 @@ require('lazy').setup({
         python = { 'ruff_format' },
         c = { 'clang_format' },
         cpp = { 'clang_format' },
-        markdown = { 'mdformat' },
+        markdown = { 'prettier' },
         html = { 'prettier' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -922,6 +922,18 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     --'folke/tokyonight.nvim',
+    -- "armannikoyan/rusty",
+    -- lazy = false,
+    -- priority = 1000,
+    -- opts = {
+    --   transparent = true,
+    --   italic_comments = true,
+    --   underline_current_line = true,
+    -- },
+    -- config = function(_, opts)
+    --   require("rusty").setup(opts)
+    --   vim.cmd("colorscheme rusty")
+    -- end,
 
     'rose-pine/neovim',
     name = 'rose-pine',
