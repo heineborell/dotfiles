@@ -942,7 +942,7 @@ require('lazy').setup({
 
       -- You can configure highlights by doing something like:
       vim.cmd 'colorscheme rose-pine'
-      vim.cmd 'highlight Normal guibg=#1B1212'
+      -- vim.cmd 'highlight Normal guibg=#1B1212'
       vim.cmd.hi 'Comment gui=none'
     end,
     -- 'nordtheme/vim',
