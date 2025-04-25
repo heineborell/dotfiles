@@ -29,7 +29,7 @@ bold_italic_font auto
 # END_KITTY_FONTS
 
 # BEGIN_KITTY_THEME
-# Nord
+# Rosé Pine
 #include current-theme.conf
 # END_KITTY_THEME
 #
