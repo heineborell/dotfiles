@@ -1,4 +1,5 @@
 --[[
+--
 
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
@@ -945,16 +946,26 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    'vague2k/vague.nvim',
+    name = 'vague',
     config = function()
       vim.opt.termguicolors = true
 
       -- You can configure highlights by doing something like:
-      vim.cmd 'colorscheme rose-pine'
+      vim.cmd 'colorscheme vague'
       -- vim.cmd 'highlight Normal guibg=#1B1212'
       vim.cmd.hi 'Comment gui=none'
     end,
+    -- 'rose-pine/neovim',
+    -- name = 'rose-pine',
+    -- config = function()
+    --   vim.opt.termguicolors = true
+    --
+    --   -- You can configure highlights by doing something like:
+    --   vim.cmd 'colorscheme rose-pine'
+    --   -- vim.cmd 'highlight Normal guibg=#1B1212'
+    --   vim.cmd.hi 'Comment gui=none'
+    -- end,
   },
 
   -- Highlight todo, notes, etc in comments
