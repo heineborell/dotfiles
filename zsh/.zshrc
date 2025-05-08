@@ -1,7 +1,39 @@
+
 # starship shell prompt
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/deniz/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/deniz/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/deniz/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/deniz/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Created by `pipx` on 2024-09-20 10:52:06
+export PATH="$PATH:/Users/deniz/.local/bin"
+
+
+
+
+# Aliases for the git graph
+
+alias graph='git log --all --decorate --oneline --graph'
+
+
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -63,18 +95,43 @@ _fzf_comprun() {
 # Alias dust (ignore git files)
 alias dust="dust -X .git"
 
-# alias nvim
-alias nv="nvim"
+# alias for cpp
+# alias cppc="clang++ -std=c++20 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
+
+cpp() {
+  src="$1"
+  out="${src%.*}"
+  clang++ -std=c++20 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion "$src" -o "$out"
+}
 
 alias lg='lazygit'
 alias ld='lazydocker'
-
-# alias for cpp
-alias cppc="clang++ -std=c++20 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
+alias oo='cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/stuffvault/'
 
 
-# Created by `pipx` on 2024-12-12 15:05:07
-export PATH="$PATH:/Users/dmini/.local/bin"
+# alias nvim
+alias nv="nvim"
+
+alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+alias code="open -a 'Visual Studio Code'"
+
+function nvims() {
+  items=("default" "kickstart" "bare", "nvim_alt", "kickstart_bare")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
+
+bindkey -s ^a "nvims\n"
+
+# vim keybindings for zsh
+#source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 # syntax highlightning
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -93,4 +150,4 @@ function y() {
 
 # zoxide completion
 eval "$(zoxide init zsh)"
-
+export PATH="$HOME/bin:$PATH"
