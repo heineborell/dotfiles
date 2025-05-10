@@ -1,0 +1,45 @@
+#!/bin/zsh
+
+# Check if a file name was provided
+if [ -z "$1" ]; then
+  echo "Error: Please provide a file name. For example: \"01 Multiples of 3 and 5\""
+  exit 1
+fi
+
+# Sanitize and format the file name
+file_name=$(echo "$1" | tr ' ' '_' | tr '[:upper:]' '[:lower:]')
+python_file="${file_name}.py"
+
+# Target directory
+target_dir="$HOME/Projects/project_euler/python"
+
+# Create the directory if it doesn't exist
+mkdir -p "$target_dir"
+
+# Full path of the file
+full_path="${target_dir}/${python_file}"
+
+# Check if the file already exists
+if [ -e "$full_path" ]; then
+  echo "Error: File already exists at ${full_path}"
+  exit 1
+fi
+
+# Write boilerplate to the file
+cat > "$full_path" <<EOF
+import time
+
+start_time = time.perf_counter()
+
+# Code goes here
+
+
+end_time = time.perf_counter()
+elapsed_time = end_time - start_time
+print(f"Elapsed time is {elapsed_time:.6f} seconds")
+EOF
+
+# Make the file executable and open in editor
+chmod +x "$full_path"
+nvim "$full_path"
+
