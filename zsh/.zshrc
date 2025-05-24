@@ -24,7 +24,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 # Created by `pipx` on 2024-09-20 10:52:06
-export PATH="$PATH:/Users/deniz/.local/bin"
+export PATH="$PATH:/Users/dmini/.local/bin"
 
 
 
@@ -99,9 +99,17 @@ alias dust="dust -X .git"
 # alias cppc="clang++ -std=c++20 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
 
 cpp() {
-  src="$1"
-  out="${src%.*}"
-  clang++ -std=c++20 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion "$src" -o "$out"
+    if [ $# -lt 1 ]; then
+        echo "Usage: cpp file1.cpp [file2.cpp ...]"
+        return 1
+    fi
+    
+    # Get the name for the output executable from the first file
+    first_src="$1"
+    out="${first_src%.*}"
+    
+    # Compile all input files
+    clang++ -std=c++23 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion "$@" -o "$out"
 }
 
 alias lg='lazygit'
