@@ -159,3 +159,8 @@ function y() {
 # zoxide completion
 eval "$(zoxide init zsh)"
 export PATH="$HOME/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"

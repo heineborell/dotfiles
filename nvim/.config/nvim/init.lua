@@ -992,6 +992,8 @@ require('lazy').setup({
       require('mini.comment').setup()
 
       require('mini.tabline').setup()
+
+      -- require('mini.operators').setup()
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
@@ -1063,8 +1065,8 @@ require('lazy').setup({
   require 'kickstart.plugins.tmuxmove',
   require 'kickstart.plugins.obsidian',
   require 'kickstart.plugins.trouble',
+  require 'kickstart.plugins.yazi',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
