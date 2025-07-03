@@ -4,27 +4,7 @@
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/deniz/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/deniz/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/deniz/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/deniz/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Created by `pipx` on 2024-09-20 10:52:06
-export PATH="$PATH:/Users/deniz/.local/bin"
+export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
 
 
 
@@ -35,7 +15,6 @@ alias graph='git log --all --decorate --oneline --graph'
 
 
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 # setup fzf keybinding and fuzzy complete
@@ -94,6 +73,8 @@ _fzf_comprun() {
 }
 # Alias dust (ignore git files)
 alias dust="dust -X .git"
+alias cdwm="nvim ~/dwm-btw/config.h"
+alias mdwm="cd ~/dwm-btw/; sudo make clean install; cd -"
 
 # alias for cpp
 # alias cppc="clang++ -std=c++20 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
@@ -140,8 +121,6 @@ bindkey -s ^a "nvims\n"
 # vim keybindings for zsh
 #source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-# syntax highlightning
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 #This is for yazi. To use it, copy the function into the configuration file of your respective
@@ -156,11 +135,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# zoxide completion
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init zsh)"
-export PATH="$HOME/bin:$PATH"
-
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"
-eval "$(atuin init zsh)"
