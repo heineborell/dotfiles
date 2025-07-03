@@ -73,8 +73,11 @@ _fzf_comprun() {
 }
 # Alias dust (ignore git files)
 alias dust="dust -X .git"
+# Some other aliases
 alias cdwm="nvim ~/dwm-btw/config.h"
 alias mdwm="cd ~/dwm-btw/; sudo make clean install; cd -"
+alias nmt="neomutt"
+alias za="zathura --fork"
 
 # alias for cpp
 # alias cppc="clang++ -std=c++20 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
@@ -95,7 +98,7 @@ cpp() {
 
 alias lg='lazygit'
 alias ld='lazydocker'
-alias oo='cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/stuffvault/'
+alias oo='cd $HOME/iCloud/Obsidian/'
 
 
 # alias nvim
@@ -135,6 +138,23 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# ssh keygen set
+# Start ssh-agent if not running
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+  eval "$(ssh-agent -s)"
+fi
+
+# Add SSH key to agent
+SSH_KEY="$HOME/.ssh/id_rsa.pub"
+if ! ssh-add -l | grep -q "$(ssh-keygen -lf "$SSH_KEY" | awk '{print $2}')"; then
+  ssh-add "$SSH_KEY" > /dev/null 2>&1
+fi
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(zoxide init zsh)"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
