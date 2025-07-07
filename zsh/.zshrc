@@ -8,7 +8,6 @@ export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
 
 
 
-
 # Aliases for the git graph
 
 alias graph='git log --all --decorate --oneline --graph'
@@ -145,7 +144,7 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 fi
 
 # Add SSH key to agent
-SSH_KEY="$HOME/.ssh/id_rsa.pub"
+SSH_KEY="/home/deniz/.ssh/id_ed25519.pub"
 if ! ssh-add -l | grep -q "$(ssh-keygen -lf "$SSH_KEY" | awk '{print $2}')"; then
   ssh-add "$SSH_KEY" > /dev/null 2>&1
 fi
@@ -158,3 +157,4 @@ eval "$(zoxide init zsh)"
 
 eval "$(atuin init zsh)"
 eval "$(atuin init zsh)"
+export PATH="$HOME/bin:$PATH"

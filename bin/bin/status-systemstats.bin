@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+cputemp=$(sensors | awk '/^Package id 0/ {print $4}')
+battery=$( acpi -b | awk '{print $4}')
+
+
+
+
+#send it to the bar
+echo $cputemp $battery
+
+
