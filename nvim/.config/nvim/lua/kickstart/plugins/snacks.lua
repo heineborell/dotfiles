@@ -10,6 +10,7 @@ return {
     terminal = { enabled = true },
     image = {
       enabled = true,
+      math = { enabled = false },
       doc = {
         inline = false,
         -- render the image in a floating window
