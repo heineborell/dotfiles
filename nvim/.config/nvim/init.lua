@@ -837,6 +837,7 @@ require('lazy').setup({
         html = { 'prettier' },
         latex = { 'tex-fmt' },
         tex = { 'tex-fmt' },
+        toml = { 'tombi' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },

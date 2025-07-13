@@ -1,0 +1,31 @@
+[mgr]
+show_hidden = false
+linemode = "size"
+
+[opener]
+edit = [
+  # { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+  { run = 'nvim "$@"', desc = "nvim", block = true, for = "unix" },
+]
+pdff = [{ run = 'zathura "$@"', desc = "zathura", block = true, for = "unix" }]
+mathematica = [
+  { run = 'WolframNB "$@"', desc = "WolframNB", block = true, orphan = true, for = "unix" },
+]
+
+[open]
+rules = [
+  { ext = "nb", use = ["mathematica"] },
+  { mime = "application/pdf", use = ["pdff", "reveal"] },
+  { mime = "application/mathematica", use = ["mathematica"] },
+  { mime = "application/vnd.wolfram.mathematica", use = ["mathematica"] },
+  # Add common text file rules
+  { ext = "py", use = ["edit"] },
+  { ext = "txt", use = ["edit"] },
+  { ext = "md", use = ["edit"] },
+  { ext = "json", use = ["edit"] },
+  { ext = "toml", use = ["edit"] },
+  { ext = "yaml", use = ["edit"] },
+  { ext = "yml", use = ["edit"] },
+  { ext = "tex", use = ["edit"] },
+  { mime = "text/*", use = ["edit"] },
+]
