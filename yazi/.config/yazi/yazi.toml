@@ -9,14 +9,14 @@ edit = [
 ]
 pdff = [{ run = 'zathura "$@"', desc = "zathura", block = true, for = "unix" }]
 mathematica = [
-  { run = 'WolframNB "$@"', desc = "WolframNB", block = true, orphan = true, for = "unix" },
+  { run = '/usr/local/bin/WolframNB "$@"', desc = "WolframNB", orphan = true, for = "unix" },
 ]
 
 [open]
 rules = [
-  { ext = "nb", use = ["mathematica"] },
+  # { ext = "nb", use = ["mathematica"] },
   { mime = "application/pdf", use = ["pdff", "reveal"] },
-  { mime = "application/mathematica", use = ["mathematica"] },
+  # { mime = "application/mathematica", use = ["mathematica"] },
   { mime = "application/vnd.wolfram.mathematica", use = ["mathematica"] },
   # Add common text file rules
   { ext = "py", use = ["edit"] },
