@@ -111,3 +111,10 @@
 ##################################
 # End of xbindkeys configuration #
 ##################################
+#
+"flameshot gui"
+    Print
+
+"flameshot full -p ~/Pictures"
+    Shift + Print
+
