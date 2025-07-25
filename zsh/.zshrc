@@ -138,6 +138,15 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# autoload vi for command line editing
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
+#default zsh editor
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+
 # ssh keygen set
 # Start ssh-agent if not running
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
