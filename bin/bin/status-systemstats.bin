@@ -2,11 +2,12 @@
 
 cputemp=$(sensors | awk '/^Package id 0/ {print $4}')
 battery=$( acpi -b | awk '{print $4}')
+rate=$(upower -d |awk '/^\s*energy-rate:/ { print $2; exit }')
 
 
 
 
 #send it to the bar
-echo $cputemp $battery
+echo $cputemp $battery $rate
 
 
