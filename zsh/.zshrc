@@ -95,6 +95,7 @@ cpp() {
     clang++ -std=c++23 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion "$@" -o "$out"
 }
 
+
 alias lg='lazygit'
 alias ld='lazydocker'
 alias oo='cd $HOME/iCloud/Obsidian/'
