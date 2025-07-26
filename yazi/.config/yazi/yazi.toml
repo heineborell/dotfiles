@@ -14,6 +14,9 @@ images = [
 mathematica = [
   { run = '/usr/local/bin/WolframNB "$@"', desc = "WolframNB", orphan = true, for = "unix" },
 ]
+sheets = [
+  { run = 'vd "$@"', desc = "visidata", blocks = true, for = "unix" },
+]
 
 [open]
 rules = [
@@ -27,7 +30,7 @@ rules = [
   { ext = "py", use = ["edit"] },
   { ext = "txt", use = ["edit"] },
   { ext = "md", use = ["edit"] },
-  { ext = "json", use = ["edit"] },
+  { ext = "json", use = ["sheets"] },
   { ext = "toml", use = ["edit"] },
   { ext = "yaml", use = ["edit"] },
   { ext = "yml", use = ["edit"] },
