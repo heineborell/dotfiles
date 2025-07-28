@@ -7,7 +7,9 @@ edit = [
   # { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
   { run = 'nvim "$@"', desc = "nvim", block = true, for = "unix" },
 ]
-pdff = [{ run = 'zathura "$@"', desc = "zathura", block = true, for = "unix" }]
+pdff = [
+  { run = 'setsid zathura "$@" >/dev/null 2>&1 &', desc = "zathura", orphan = true, block = false, for = "unix" },
+]
 images = [
   { run = 'feh "$@"', desc = "feh", orphan = false, block = true, for = "unix" },
 ]
@@ -15,7 +17,7 @@ mathematica = [
   { run = '/usr/local/bin/WolframNB "$@"', desc = "WolframNB", orphan = true, for = "unix" },
 ]
 sheets = [
-  { run = 'vd "$@"', desc = "visidata", blocks = true, for = "unix" },
+  { name = "test", run = 'sh -c "echo \"$@\" >> /tmp/yazi_test.log"', desc = "test cmd" },
 ]
 
 [open]
@@ -24,13 +26,14 @@ rules = [
   { mime = "application/pdf", use = ["pdff", "reveal"] },
   # { mime = "application/mathematica", use = ["mathematica"] },
   { mime = "application/vnd.wolfram.mathematica", use = ["mathematica"] },
+  { mime = "application/json", use = ["sheets"] },
   { mime = "image/png", use = ["images"] },
   { mime = "image/jpeg", use = ["images"] },
   # Add common text file rules
   { ext = "py", use = ["edit"] },
   { ext = "txt", use = ["edit"] },
   { ext = "md", use = ["edit"] },
-  { ext = "json", use = ["sheets"] },
+  { ext = "json", use = ["vd"] },
   { ext = "toml", use = ["edit"] },
   { ext = "yaml", use = ["edit"] },
   { ext = "yml", use = ["edit"] },
