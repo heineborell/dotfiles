@@ -25,15 +25,13 @@
         "hyprland/window"
     ],
     "modules-right": [
-        "pulseaudio",
-        "network",
+        // "network",
         "memory",
         "cpu",
-        "temperature",
-        "custom/keyboard-layout",
-        "battery",
-        "tray",
-        "clock#date",
+        // "temperature",
+        // "custom/keyboard-layout",
+        // "tray",
+        // "clock#date",
         "clock#time"
     ],
 
