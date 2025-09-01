@@ -92,7 +92,7 @@ cpp() {
     out="${first_src%.*}"
     
     # Compile all input files
-    clang++ -std=c++23 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion "$@" -o "$out"
+    clang++ -Wshadow -std=c++23 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion "$@" -o "$out"
 }
 
 

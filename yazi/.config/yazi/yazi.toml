@@ -19,6 +19,7 @@ mathematica = [
 sheets = [
   { name = "test", run = 'sh -c "echo \"$@\" >> /tmp/yazi_test.log"', desc = "test cmd" },
 ]
+text = [{ run = 'nvim "$@"', block = true }]
 
 [open]
 rules = [
