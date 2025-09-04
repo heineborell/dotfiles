@@ -5,7 +5,7 @@ macro index,pager i1 '<sync-mailbox><enter-command>source /home/deniz/.config/mu
 
 macro attach Z "|w3m -dump -T text/html | nvim -<enter>" "view HTML attachment in nvim"
 set mailcap_path=~/.mutt/mailcap
-
+# set edit_headers = yes
 
 
 ###############################################################################
