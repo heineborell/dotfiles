@@ -731,7 +731,10 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
+        clangd = { cmd = {
+          'clangd',
+          '--fallback-style={BasedOnStyle: LLVM, PointerAlignment: Left}',
+        } },
         -- gopls = {},
         pyright = {},
         ruff = {},
@@ -949,6 +952,7 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    -- 'blazkowolf/gruber-darker.nvim',
     'vague2k/vague.nvim',
     name = 'vague',
     config = function()
