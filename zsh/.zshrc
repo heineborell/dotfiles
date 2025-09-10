@@ -114,7 +114,7 @@ cpp() {
 
 alias lg='lazygit'
 alias ld='lazydocker'
-alias oo='cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/stuffvault/'
+alias oo='cd /Volumes/icloud_shared/iCloud/AllDrive/Obsidian/stuffvault/inbox/'
 
 
 # alias nvim
