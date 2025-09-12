@@ -952,14 +952,14 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    -- 'blazkowolf/gruber-darker.nvim',
-    'vague2k/vague.nvim',
-    name = 'vague',
+    'blazkowolf/gruber-darker.nvim',
+    -- 'vague2k/vague.nvim',
+    -- name = 'vague',
     config = function()
       vim.opt.termguicolors = true
 
       -- You can configure highlights by doing something like:
-      vim.cmd 'colorscheme vague'
+      vim.cmd 'colorscheme gruber-darker'
       vim.cmd 'highlight Normal guibg=#000000'
       vim.cmd.hi 'Comment gui=none'
     end,
