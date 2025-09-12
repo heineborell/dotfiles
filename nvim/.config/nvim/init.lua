@@ -173,64 +173,64 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
--- OBSIDIAN NOTE KEYMAPS
---------------
--- obsidian --
---------------
---
--- >>> oo # from shell, navigate to vault (optional)
---
--- # NEW NOTE
--- >>> on "Note Name" # call my "obsidian new note" shell script (~/bin/on)
--- >>>
--- >>> ))) <leader>on # inside vim now, format note as template
--- >>> ))) # add tag, e.g. fact / blog / video / etc..
--- >>> ))) # add hubs, e.g. [[python]], [[machine-learning]], etc...
--- >>> ))) <leader>of # format title
---
--- # END OF DAY/WEEK REVIEW
--- >>> or # review notes in inbox
--- >>>
--- >>> ))) <leader>ok # inside vim now, move to zettelkasten
--- >>> ))) <leader>odd # or delete
--- >>>
--- >>> og # organize saved notes from zettelkasten into notes/[tag] folders
--- >>> ou # sync local with Notion
---
--- navigate to vault
-vim.keymap.set('n', '<leader>oo', ':cd /Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes<cr>')
---
--- convert note to template and remove leading white space
+-- -- OBSIDIAN NOTE KEYMAPS
+-- --------------
+-- -- obsidian --
+-- --------------
+-- --
+-- -- >>> oo # from shell, navigate to vault (optional)
+-- --
+-- -- # NEW NOTE
+-- -- >>> on "Note Name" # call my "obsidian new note" shell script (~/bin/on)
+-- -- >>>
+-- -- >>> ))) <leader>on # inside vim now, format note as template
+-- -- >>> ))) # add tag, e.g. fact / blog / video / etc..
+-- -- >>> ))) # add hubs, e.g. [[python]], [[machine-learning]], etc...
+-- -- >>> ))) <leader>of # format title
+-- --
+-- -- # END OF DAY/WEEK REVIEW
+-- -- >>> or # review notes in inbox
+-- -- >>>
+-- -- >>> ))) <leader>ok # inside vim now, move to zettelkasten
+-- -- >>> ))) <leader>odd # or delete
+-- -- >>>
+-- -- >>> og # organize saved notes from zettelkasten into notes/[tag] folders
+-- -- >>> ou # sync local with Notion
+-- --
+-- -- navigate to vault
+-- vim.keymap.set('n', '<leader>oo', ':cd /Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes<cr>')
+-- --
+-- -- convert note to template and remove leading white space
 vim.keymap.set('n', '<leader>on', ':ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>')
--- strip date from note title and replace dashes with spaces
--- must have cursor on title
+-- -- strip date from note title and replace dashes with spaces
+-- -- must have cursor on title
 vim.keymap.set('n', '<leader>of', ':s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>')
+-- --
+-- -- search for files in full vault
+-- vim.keymap.set(
+--   'n',
+--   '<leader>os',
+--   ':Telescope find_files search_dirs={"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes"}<cr>'
+-- )
+-- vim.keymap.set(
+--   'n',
+--   '<leader>oz',
+--   ':Telescope live_grep search_dirs={"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes"}<cr>'
+-- )
+-- --
+-- -- search for files in notes (ignore zettelkasten)
+-- -- vim.keymap.set("n", "<leader>ois", ":Telescope find_files search_dirs={\"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes\"}<cr>")
+-- -- vim.keymap.set("n", "<leader>oiz", ":Telescope live_grep search_dirs={\"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes\"}<cr>")
+-- --
+-- -- for review workflow
+-- -- move file in current buffer to zettelkasten folder
+-- vim.keymap.set('n', '<leader>ok', ":!mv '%:p' /Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/zettelkasten<cr>:bd<cr>")
+-- -- delete file in current buffer
+-- vim.keymap.set('n', '<leader>odd', ":!rm '%:p'<cr>:bd<cr>")
 --
--- search for files in full vault
-vim.keymap.set(
-  'n',
-  '<leader>os',
-  ':Telescope find_files search_dirs={"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes"}<cr>'
-)
-vim.keymap.set(
-  'n',
-  '<leader>oz',
-  ':Telescope live_grep search_dirs={"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes"}<cr>'
-)
+-- -- Diagnostic keymaps
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 --
--- search for files in notes (ignore zettelkasten)
--- vim.keymap.set("n", "<leader>ois", ":Telescope find_files search_dirs={\"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes\"}<cr>")
--- vim.keymap.set("n", "<leader>oiz", ":Telescope live_grep search_dirs={\"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes\"}<cr>")
---
--- for review workflow
--- move file in current buffer to zettelkasten folder
-vim.keymap.set('n', '<leader>ok', ":!mv '%:p' /Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/zettelkasten<cr>:bd<cr>")
--- delete file in current buffer
-vim.keymap.set('n', '<leader>odd', ":!rm '%:p'<cr>:bd<cr>")
-
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -731,7 +731,10 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
+        clangd = { cmd = {
+          'clangd',
+          '--fallback-style={BasedOnStyle: LLVM, PointerAlignment: Left}',
+        } },
         -- gopls = {},
         pyright = {},
         ruff = {},
@@ -835,6 +838,9 @@ require('lazy').setup({
         cpp = { 'clang_format' },
         markdown = { 'prettier' },
         html = { 'prettier' },
+        latex = { 'tex-fmt' },
+        tex = { 'tex-fmt' },
+        toml = { 'tombi' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -946,6 +952,7 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    -- 'blazkowolf/gruber-darker.nvim',
     'vague2k/vague.nvim',
     name = 'vague',
     config = function()
@@ -953,7 +960,7 @@ require('lazy').setup({
 
       -- You can configure highlights by doing something like:
       vim.cmd 'colorscheme vague'
-      -- vim.cmd 'highlight Normal guibg=#1B1212'
+      vim.cmd 'highlight Normal guibg=#000000'
       vim.cmd.hi 'Comment gui=none'
     end,
     -- 'rose-pine/neovim',
@@ -1053,7 +1060,7 @@ require('lazy').setup({
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.database',
   require 'kickstart.plugins.markdownprev',
   require 'kickstart.plugins.snacks',
@@ -1066,6 +1073,10 @@ require('lazy').setup({
   require 'kickstart.plugins.obsidian',
   require 'kickstart.plugins.trouble',
   require 'kickstart.plugins.yazi',
+  require 'kickstart.plugins.undotree',
+  require 'kickstart.plugins.translate',
+  require 'kickstart.plugins.oil',
+  require 'kickstart.plugins.wtf',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

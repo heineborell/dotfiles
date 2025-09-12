@@ -6,7 +6,7 @@ return {
   config = function()
     require('jupynium').setup {
       python_host = vim.g.python3_host_prog or 'python3',
-      default_notebook_URL = 'localhost:3000/nbclassic',
+      default_notebook_URL = 'localhost:8888/nbclassic',
       jupyter_command = 'jupyter',
       notebook_dir = nil,
       firefox_profiles_ini_path = nil,
