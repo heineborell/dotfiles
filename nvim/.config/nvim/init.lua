@@ -651,6 +651,32 @@ require('lazy').setup({
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+          -- Disable LSP semantic token highlighting
+          if client and client.server_capabilities.semanticTokensProvider then
+            client.server_capabilities.semanticTokensProvider = nil
+          end
+
+          if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+              buffer = event.buf,
+              group = highlight_augroup,
+              callback = vim.lsp.buf.document_highlight,
+            })
+            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+              buffer = event.buf,
+              group = highlight_augroup,
+              callback = vim.lsp.buf.clear_references,
+            })
+            vim.api.nvim_create_autocmd('LspDetach', {
+              group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+              callback = function(event2)
+                vim.lsp.buf.clear_references()
+                vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+              end,
+            })
+          end
           if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
             local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -952,17 +978,19 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'blazkowolf/gruber-darker.nvim',
     -- 'vague2k/vague.nvim',
     -- name = 'vague',
-    config = function()
-      vim.opt.termguicolors = true
-
-      -- You can configure highlights by doing something like:
-      vim.cmd 'colorscheme gruber-darker'
-      vim.cmd 'highlight Normal guibg=#000000'
-      vim.cmd.hi 'Comment gui=none'
-    end,
+    -- 'blazkowolf/gruber-darker.nvim',
+    -- config = function()
+    --   vim.opt.termguicolors = true
+    --
+    --   -- You can configure highlights by doing something like:
+    --   vim.cmd 'colorscheme gruber-darker'
+    --   vim.cmd 'highlight Normal guibg=#000000'
+    --   vim.cmd.hi 'Comment gui=none'
+    -- end,
+    require('learncpp.init').colorscheme(),
+    --
     -- 'rose-pine/neovim',
     -- name = 'rose-pine',
     -- config = function()
