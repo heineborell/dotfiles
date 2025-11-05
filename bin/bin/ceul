@@ -1,0 +1,64 @@
+#!/bin/zsh
+
+# Check if a file name was provided or not
+if [ -z "$1" ]; then
+  echo "Error: Please provide a file name. For example: \"01 Multiples of 3 and 5\""
+  exit 1
+fi
+
+# Sanitize and format the file name
+file_name=$(echo "$1" | tr ' ' '_' | tr '[:upper:]' '[:lower:]')
+python_file="${file_name}.cpp"
+
+# Target directory
+target_dir="$HOME/Projects/project_euler/cpp"
+
+# Create the directory if it doesn't exist
+mkdir -p "$target_dir"
+
+# Full path of the file
+full_path="${target_dir}/${python_file}"
+
+# Check if the file already exists
+if [ -e "$full_path" ]; then
+  echo "Error: File already exists at ${full_path}"
+  exit 1
+fi
+
+# Write boilerplate to the file
+cat > "$full_path" <<EOF
+#include <chrono> // for std::chrono functions
+#include <iostream>
+
+class Timer {
+private:
+  // Type aliases to make accessing nested type easier
+  using Clock = std::chrono::steady_clock;
+  using Second = std::chrono::duration<double, std::ratio<1>>;
+
+  std::chrono::time_point<Clock> m_beg{Clock::now()};
+
+public:
+  void reset() { m_beg = Clock::now(); }
+
+  double elapsed() const {
+    return std::chrono::duration_cast<Second>(Clock::now() - m_beg).count();
+  }
+};
+
+int main() {
+  Timer t;
+
+  // Code to time goes here
+
+  std::cout << "Time elapsed: " << t.elapsed() << " seconds\n";
+
+  return 0;
+}
+EOF
+
+# Make the file executable and open in editor
+chmod +x "$full_path"
+nvim "$full_path"
+
+

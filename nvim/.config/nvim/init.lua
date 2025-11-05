@@ -980,16 +980,16 @@ require('lazy').setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'vague2k/vague.nvim',
     -- name = 'vague',
-    -- 'blazkowolf/gruber-darker.nvim',
-    -- config = function()
-    --   vim.opt.termguicolors = true
-    --
-    --   -- You can configure highlights by doing something like:
-    --   vim.cmd 'colorscheme gruber-darker'
-    --   vim.cmd 'highlight Normal guibg=#000000'
-    --   vim.cmd.hi 'Comment gui=none'
-    -- end,
-    require('learncpp.init').colorscheme(),
+    'blazkowolf/gruber-darker.nvim',
+    config = function()
+      vim.opt.termguicolors = true
+      --
+      --   -- You can configure highlights by doing something like:
+      vim.cmd 'colorscheme gruber-darker'
+      --   vim.cmd 'highlight Normal guibg=#000000'
+      vim.cmd.hi 'Comment gui=none'
+    end,
+    -- require('learncpp.init').colorscheme(),
     --
     -- 'rose-pine/neovim',
     -- name = 'rose-pine',
@@ -1084,7 +1084,7 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
@@ -1105,6 +1105,7 @@ require('lazy').setup({
   require 'kickstart.plugins.translate',
   require 'kickstart.plugins.oil',
   require 'kickstart.plugins.wtf',
+  require 'kickstart.plugins.tabout',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
