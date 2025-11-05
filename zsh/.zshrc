@@ -1,19 +1,9 @@
-
 # starship shell prompt
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
 
-export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
-
-
-
-# Aliases for the git graph
-
-alias graph='git log --all --decorate --oneline --graph'
-
-
-
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
 # setup fzf keybinding and fuzzy complete
@@ -72,58 +62,21 @@ _fzf_comprun() {
 }
 # Alias dust (ignore git files)
 alias dust="dust -X .git"
-# Some other aliases
-alias cdwm="nvim ~/dwm-btw/config.h"
-alias mdwm="cd ~/dwm-btw/; sudo make clean install; cd -"
-alias nmt="neomutt"
-alias za="zathura --fork"
-
-# alias for cpp
-# alias cppc="clang++ -std=c++20 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
-
-cpp() {
-    if [ $# -lt 1 ]; then
-        echo "Usage: cpp file1.cpp [file2.cpp ...]"
-        return 1
-    fi
-    
-    # Get the name for the output executable from the first file
-    first_src="$1"
-    out="${first_src%.*}"
-    
-    # Compile all input files
-    clang++ -Wshadow -std=c++23 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion "$@" -o "$out"
-}
-
-
-alias lg='lazygit'
-alias ld='lazydocker'
-alias oo='cd /Volumes/icloud_shared/iCloud/AllDrive/Obsidian/stuffvault/inbox/'
-
 
 # alias nvim
 alias nv="nvim"
 
-alias nvim-kick="NVIM_APPNAME=kickstart nvim"
-alias code="open -a 'Visual Studio Code'"
+alias lg='lazygit'
+alias ld='lazydocker'
 
-function nvims() {
-  items=("default" "kickstart" "bare", "nvim_alt", "kickstart_bare")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "default" ]]; then
-    config=""
-  fi
-  NVIM_APPNAME=$config nvim $@
-}
+# alias for cpp
+alias cppc="clang++ -std=c++20 -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion"
 
-bindkey -s ^a "nvims\n"
 
-# vim keybindings for zsh
-#source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
+# Created by `pipx` on 2024-12-12 15:05:07
+export PATH="$PATH:/Users/dmini/.local/bin"
+# syntax highlightning
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 #This is for yazi. To use it, copy the function into the configuration file of your respective
@@ -138,34 +91,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# autoload vi for command line editing
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^X^E' edit-command-line
-
-#default zsh editor
-export EDITOR="nvim"
-export VISUAL="$EDITOR"
-
-# ssh keygen set
-# Start ssh-agent if not running
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  eval "$(ssh-agent -s)"
-fi
-
-# Add SSH key to agent
-SSH_KEY="/home/deniz/.ssh/id_ed25519.pub"
-if ! ssh-add -l | grep -q "$(ssh-keygen -lf "$SSH_KEY" | awk '{print $2}')"; then
-  ssh-add "$SSH_KEY" > /dev/null 2>&1
-fi
-
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zoxide completion
 eval "$(zoxide init zsh)"
-
-. "$HOME/.atuin/bin/env"
-
 eval "$(atuin init zsh)"
-eval "$(atuin init zsh)"
-export PATH="$HOME/bin:$PATH"
-export PATH=/opt/cuda/bin:$PATH
