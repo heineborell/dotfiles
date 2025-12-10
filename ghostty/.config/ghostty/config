@@ -1,4 +1,4 @@
-j This is the configuration file for Ghostty.
+# This is the configuration file for Ghostty.
 #
 # This template file has been automatically created at the following
 # path since Ghostty couldn't find any existing config files on your system:
@@ -20,7 +20,7 @@ j This is the configuration file for Ghostty.
 # # The config file consists of simple key-value pairs,
 # # separated by equals signs.
 font-family = Iosevka Nerd Font Mono
-font-size = 18
+font-size = 22
 theme = Gruber Darker
 background = black
 # window-padding-x = 2
