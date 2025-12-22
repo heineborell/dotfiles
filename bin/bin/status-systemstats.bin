@@ -3,11 +3,9 @@
 cputemp=$(sensors | awk '/^Package id 0/ {print $4}')
 battery=$( acpi -b | awk '{print $4}')
 rate=$(upower -d |awk '/^\s*energy-rate:/ { print $2; exit }')
+asus_profile=$(asusctl profile -p | awk 'NR==2 {print $NF}')
 
-
-
-
-#send it to the bar
-echo $cputemp $battery $rate
+# send it to dwmblocks
+echo $cputemp $battery $rate $asus_profile
 
 

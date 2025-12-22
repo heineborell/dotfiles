@@ -21,7 +21,7 @@ return {
     workspaces = {
       {
         name = 'stuffvault',
-        path = '$HOME/iCloud/Obsidian/stuffvault',
+        path = '$HOME/Rclone/Obsidian/stuffvault/',
       },
     },
     notes_subdir = 'inbox',
