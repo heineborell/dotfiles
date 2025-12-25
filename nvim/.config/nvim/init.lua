@@ -938,7 +938,7 @@ require('lazy').setup({
   require 'kickstart.plugins.vimtex',
   require 'kickstart.plugins.marp',
   -- require 'kickstart.plugins.image',
-  require 'kickstart.plugins.jupynium',
+  -- require 'kickstart.plugins.jupynium',
   require 'kickstart.plugins.flash',
   require 'kickstart.plugins.tmuxmove',
   require 'kickstart.plugins.obsidian',
@@ -949,6 +949,7 @@ require('lazy').setup({
   require 'kickstart.plugins.oil',
   require 'kickstart.plugins.wtf',
   require 'kickstart.plugins.tabout',
+  require 'kickstart.plugins.typst',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
