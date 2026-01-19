@@ -7,7 +7,7 @@ return {
     init = function()
       -- VimTeX configuration goes here, e.g.
       vim.g.vimtex_view_method = 'zathura'
-      vim.g.tex_flavor = 'latex'
+      vim.g.tex_flavor = 'lualatex'
       vim.g.vimtex_quickfix_mode = 0
     end,
   },
