@@ -828,7 +828,6 @@ require('lazy').setup({
     -- name = 'vague',
     config = function()
       vim.opt.termguicolors = true
-
       -- You can configure highlights by doing something like:
       vim.cmd 'colorscheme gruber-darker'
       vim.cmd 'highlight Normal guibg=#000000'
@@ -982,3 +981,4 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+vim.opt.background = 'light' -- i put this just to make nvim work normally with the monitor attached using the laptop
