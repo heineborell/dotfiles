@@ -709,6 +709,7 @@ require('lazy').setup({
         c = { 'clang-format' },
         cpp = { 'clang_format' },
         markdown = { 'prettier' },
+        typst = { 'prettypst' },
         html = { 'prettier' },
         latex = { 'tex-fmt' },
         tex = { 'tex-fmt' },
