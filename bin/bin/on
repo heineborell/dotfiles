@@ -7,6 +7,6 @@ fi
 
 file_name=$(echo "$1" | tr ' ' '-')
 formatted_file_name=$(date "+%Y-%m-%d")_${file_name}.md
-cd "$HOME/Rclone/Obsidian/stuffvault/" || exit
+cd "/mnt/storage/icloud_shared/iCloud/AllDrive/Obsidian/stuffvault/" || exit
 touch "inbox/${formatted_file_name}"
 nvim "inbox/${formatted_file_name}"

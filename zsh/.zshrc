@@ -3,6 +3,7 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
 
 export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 
 
@@ -96,7 +97,7 @@ cpp() {
 
 alias lg='lazygit'
 alias ld='lazydocker'
-alias oo='cd $HOME/Rclone/Obsidian/'
+alias oo='cd /mnt/storage/icloud_shared/iCloud/AllDrive/Obsidian/'
 
 
 # alias nvim

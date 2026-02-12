@@ -11,7 +11,8 @@ pdff = [
   { run = 'setsid zathura "$@" >/dev/null 2>&1 &', desc = "zathura", orphan = true, block = false, for = "unix" },
 ]
 images = [
-  { run = 'feh "$@"', desc = "feh", orphan = false, block = true, for = "unix" },
+  { run = 'feh "$@"', desc = "feh", orphan = false, block = true, for = "unix" },  { run = 'inkscape "$@"', desc = "feh", orphan = false, block = true, for = "unix" },
+
 ]
 mathematica = [
   { run = '/usr/local/bin/WolframNB "$@"', desc = "WolframNB", orphan = true, for = "unix" },

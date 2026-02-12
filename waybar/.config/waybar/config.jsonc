@@ -30,6 +30,7 @@
         "memory",
         "cpu",
         "temperature",
+        "custom/nvidia",
         "custom/keyboard-layout",
         "battery",
         "tray",
@@ -167,6 +168,13 @@
       "tooltip": true
     },
 
+"custom/nvidia": {
+    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+    "format": "  {}°C",
+    "interval": 5,
+    "tooltip": true,
+    "on-click": "nvidia-settings"
+},
     "tray": {
         "icon-size": 15,
         "spacing": 15

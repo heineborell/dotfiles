@@ -949,7 +949,9 @@ require('lazy').setup({
   require 'kickstart.plugins.oil',
   require 'kickstart.plugins.wtf',
   require 'kickstart.plugins.tabout',
-  require 'kickstart.plugins.typst',
+  -- require 'kickstart.plugins.typst',
+  require 'kickstart.plugins.snipe',
+  require 'lua.kickstart.plugins.multiple-cursor',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
