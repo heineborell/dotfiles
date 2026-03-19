@@ -12,3 +12,8 @@ run = 'shell --block -- neomutt -a "$@"'
 on = "<Esc>"
 run = "close"
 desc = "Cancel input"
+
+[[mgr.prepend_keymap]]
+on = ["P"]
+run = 'shell --block "zathura \"$1\""'
+desc = "Open PDF with zathura (blocking)"

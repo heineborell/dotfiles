@@ -10,6 +10,10 @@ edit = [
 pdff = [
   { run = 'setsid zathura "$@" >/dev/null 2>&1 &', desc = "zathura", orphan = true, block = false, for = "unix" },
 ]
+
+djvu_viewer = [
+  { run = 'setsid zathura "$@" >/dev/null 2>&1 &', desc = "zathura", orphan = true, block = false, for = "unix" },
+]
 images = [
   { run = 'feh "$@"', desc = "feh", orphan = false, block = true, for = "unix" },  { run = 'inkscape "$@"', desc = "feh", orphan = false, block = true, for = "unix" },
 
@@ -26,6 +30,8 @@ text = [{ run = 'nvim "$@"', block = true }]
 rules = [
   # { ext = "nb", use = ["mathematica"] },
   { mime = "application/pdf", use = ["pdff", "reveal"] },
+  { mime = "image/vnd.djvu", use = "djvu_viewer" },
+{ name = "*.djvu", use = "djvu_viewer" },
   # { mime = "application/mathematica", use = ["mathematica"] },
   { mime = "application/vnd.wolfram.mathematica", use = ["mathematica"] },
   { mime = "application/json", use = ["sheets"] },
@@ -42,3 +48,4 @@ rules = [
   { ext = "tex", use = ["edit"] },
   { mime = "text/*", use = ["edit"] },
 ]
+
