@@ -20,7 +20,7 @@
 # # The config file consists of simple key-value pairs,
 # # separated by equals signs.
 font-family = Iosevka Nerd Font Mono
-font-size = 22
+font-size = 20
 theme = Gruber Darker
 background = black
 # window-padding-x = 2
