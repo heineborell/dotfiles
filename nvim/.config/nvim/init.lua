@@ -292,6 +292,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end ---@diagnostic disable-next-line: undefined-field
 
+---@type vim.Option
+local rtp = vim.opt.rtp
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
