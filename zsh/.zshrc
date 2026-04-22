@@ -104,6 +104,7 @@ alias oo='cd /mnt/storage/icloud_shared/iCloud/AllDrive/Obsidian/'
 alias nv="nvim"
 
 alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+alias nvim-default="NVIM_APPNAME=default nvim"
 alias code="open -a 'Visual Studio Code'"
 
 function nvims() {

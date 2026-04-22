@@ -31,6 +31,7 @@
         "cpu",
         "temperature",
         "custom/nvidia",
+        "custom/gpu-memory",  
         "custom/keyboard-layout",
         "battery",
         "tray",
@@ -174,6 +175,13 @@
     "interval": 5,
     "tooltip": true,
     "on-click": "nvidia-settings"
+},
+"custom/gpu-memory": {
+    "exec": "nvidia-smi --query-gpu=memory.used,memory.total --format=csv,noheader,nounits | awk '{print $1 \"/\" $2 \" MB\"}'",
+    "format": "  {}",
+    "interval": 5,
+    "return-type": "",
+    "tooltip": true
 },
     "tray": {
         "icon-size": 15,
