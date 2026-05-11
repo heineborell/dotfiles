@@ -1,51 +1,34 @@
 [mgr]
-show_hidden = false
 linemode = "size"
 
 [opener]
 edit = [
-  # { run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
   { run = 'nvim "$@"', desc = "nvim", block = true, for = "unix" },
 ]
 pdff = [
-  { run = 'setsid zathura "$@" >/dev/null 2>&1 &', desc = "zathura", orphan = true, block = false, for = "unix" },
-]
-
-djvu_viewer = [
-  { run = 'setsid zathura "$@" >/dev/null 2>&1 &', desc = "zathura", orphan = true, block = false, for = "unix" },
+  { run = 'setsid zathura "$@" >/dev/null 2>&1 &', desc = "zathura", orphan = true, for = "unix" },
 ]
 images = [
-  { run = 'feh "$@"', desc = "feh", orphan = false, block = true, for = "unix" },  { run = 'inkscape "$@"', desc = "feh", orphan = false, block = true, for = "unix" },
-
+  { run = 'feh "$@"', desc = "feh", block = true, for = "unix" },
 ]
 mathematica = [
   { run = '/usr/local/bin/WolframNB "$@"', desc = "WolframNB", orphan = true, for = "unix" },
 ]
-sheets = [
-  { name = "test", run = 'sh -c "echo \"$@\" >> /tmp/yazi_test.log"', desc = "test cmd" },
+reveal = [
+  { run = "xdg-open %d1", desc = "Reveal", for = "linux" },
 ]
-text = [{ run = 'nvim "$@"', block = true }]
 
 [open]
 rules = [
-  # { ext = "nb", use = ["mathematica"] },
+  # Priority Binary Types
   { mime = "application/pdf", use = ["pdff", "reveal"] },
-  { mime = "image/vnd.djvu", use = "djvu_viewer" },
-{ name = "*.djvu", use = "djvu_viewer" },
-  # { mime = "application/mathematica", use = ["mathematica"] },
-  { mime = "application/vnd.wolfram.mathematica", use = ["mathematica"] },
-  { mime = "application/json", use = ["sheets"] },
   { mime = "image/png", use = ["images"] },
   { mime = "image/jpeg", use = ["images"] },
-  # Add common text file rules
-  { ext = "py", use = ["edit"] },
-  { ext = "txt", use = ["edit"] },
-  { ext = "md", use = ["edit"] },
-  { ext = "json", use = ["vd"] },
-  { ext = "toml", use = ["edit"] },
-  { ext = "yaml", use = ["edit"] },
-  { ext = "yml", use = ["edit"] },
-  { ext = "tex", use = ["edit"] },
-  { mime = "text/*", use = ["edit"] },
-]
+  { mime = "text/*", use = "edit" },
+  { name = "*.djvu", mime = "*", use = ["pdff"] },
+  { mime = "image/*", use = ["images"] },
+  { mime = "application/vnd.wolfram.mathematica", use = "mathematica" },
 
+  # Fallback for all other text
+  { url = "*", use = "edit" },
+]
