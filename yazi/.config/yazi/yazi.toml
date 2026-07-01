@@ -18,6 +18,10 @@ reveal = [
   { run = "xdg-open %d1", desc = "Reveal", for = "linux" },
 ]
 
+vd = [
+  { run = 'vd "$@"', desc = "VisiData", block = true, for = "unix" },
+]
+
 [open]
 rules = [
   # Priority Binary Types
