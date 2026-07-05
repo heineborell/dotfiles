@@ -1,9 +1,11 @@
 #!/bin/sh
-xrandr --output eDP --mode 2560x1600
+# xrandr --output eDP --mode 2560x1600
 # Input settings
-xinput --set-prop "ASCE1206:00 04F3:3315 Mouse" "libinput Accel Speed" 2
-xinput --set-prop "ASCE1206:00 04F3:3315 Mouse" "libinput Natural Scrolling Enabled" 1
-xinput --set-prop "ASCE1206:00 04F3:3315 Touchpad" "libinput Natural Scrolling Enabled" 1
+# xinput --set-prop "ASCE1206:00 04F3:3315 Mouse" "libinput Accel Speed" 2
+# xinput --set-prop "ASCE1206:00 04F3:3315 Mouse" "libinput Natural Scrolling Enabled" 1
+# xinput --set-prop "ASCE1206:00 04F3:3315 Touchpad" "libinput Natural Scrolling Enabled" 1
+# xsetm 1.5
+
 
 # Start the PipeWire Team (Order matters!)
 /usr/bin/pipewire &
