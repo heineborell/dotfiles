@@ -369,6 +369,7 @@ hl.bind("ALT + K", window.resize({ x = 0, y = -20, relative = true }))
 hl.bind("ALT + J", window.resize({ x = 0, y = 20, relative = true }))
 
 hl.bind("SUPER + I", hl.dsp.window.swap({ direction = "r" }))
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("hyprshot -m region"))
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------

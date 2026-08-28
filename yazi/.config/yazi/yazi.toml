@@ -3,13 +3,14 @@ linemode = "size"
 
 [opener]
 edit = [
-  { run = 'nvim "$@"', desc = "nvim", block = true, for = "unix" },
+  # { run = 'nvim "$@"', desc = "nvim", block = true, for = "unix" },
+  { run = "nvim %s", block = true },
 ]
 pdff = [
-  { run = 'setsid zathura "$@" >/dev/null 2>&1 &', desc = "zathura", orphan = true, for = "unix" },
+  { run = "zathura %s", desc = "zathura", orphan = true, for = "unix" },
 ]
 images = [
-  { run = 'feh "$@"', desc = "feh", block = true, for = "unix" },
+  { run = 'feh "%s"', desc = "feh", block = true, for = "unix" },
 ]
 mathematica = [
   { run = '/usr/local/bin/WolframNB "$@"', desc = "WolframNB", orphan = true, for = "unix" },

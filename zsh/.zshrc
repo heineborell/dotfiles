@@ -168,3 +168,5 @@ eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 eval "$(atuin init zsh)"
 export PATH="$HOME/bin:$PATH"
+
+export PATH="/home/deniz/.pixi/bin:$PATH"
