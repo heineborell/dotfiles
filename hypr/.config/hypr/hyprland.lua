@@ -20,7 +20,7 @@ hl.monitor({
 	position = "0x0",
 	scale = "2",
 })
-hl.monitor({ output = "HDMI-A-2", mode = "1920x1080@100", position = "-1920x0", scale = 1 })
+hl.monitor({ output = "HDMI-A-2", mode = "2560x1440@100", position = "-2560x0", scale = 1 })
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -42,7 +42,7 @@ local browser = "firefox"
 hl.on("hyprland.start", function()
 	hl.exec_cmd(terminal)
 	-- hl.exec_cmd("nm-applet")
-	hl.exec_cmd("waybar & hyprpaper ")
+	hl.exec_cmd("waybar & hyprpaper & hypridle ")
 end)
 
 -------------------------------
